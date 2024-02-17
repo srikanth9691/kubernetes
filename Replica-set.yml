@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet # capital s in ReplicaSet
+metadata:
+  name: tomcat-rs
+  labels:
+    type: appserver
+    author: reddy
+spec:
+  replicas: 1
+  selector:
+    matchLabels: # capital L in matchLabels
+      type: appserver
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+       type: appserver
+    spec:
+      containers:
+        - name: mytomcat
+          image: tomee
+          ports:
+            - containerPort: 8080 # capital P in containerPort
+              hostPort: 8888
+...              
+# if two words are combined then first letter of word n 
+# first letter of second word shoud be capital letter
+# 

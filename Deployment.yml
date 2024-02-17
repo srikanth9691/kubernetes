@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxt-dm
+  labels:
+    type: proxy
+    author: reddy
+spec:
+  replicas: 3
+  selector:
+    matchLabels: # capital L in matchLabels
+      type: proxy
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+       type: proxy
+    spec:
+      containers:
+        - name: mynginx
+          image: nginx
+          ports:
+            - containerPort: 80 # capital P in containerPort
+              hostPort: 8888
+...              
+# if two words are combined then first letter of word n 
+# first letter of second word shoud be capital letter
+# 
+#
