@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: httpd-deployment
+  labels:
+    type: webserver
+    author: msr
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+  template:
+    metadata:
+      name: httpd-pod
+      labels:
+        type: webserver
+    spec:
+      containers:
+        - name: myhttpd
+          image: httpd
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "250m" 
+            limits:
+              memory: "200Mi"
+              cpu: "500m"   
