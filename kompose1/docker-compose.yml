@@ -1,0 +1,15 @@
+---
+version: "3"
+services:
+  db:
+   image: mysql:5
+   environment:
+     MYSQL_ROOT_PASSWORD: srikanth
+  
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    deploy:
+      replicas: 3 
+...        

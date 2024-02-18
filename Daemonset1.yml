@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ghost-daemon
+  labels:
+    author: sada
+spec:
+  selector:
+    matchLabels:
+      author : sada
+  template:
+    metadata:
+      name: ghost-pod
+      labels:
+        author: sada
+    spec:
+      containers:
+        - name: ghost
+          image: ghost
+          env:
+            - name: NODE_NEW
+              value: development

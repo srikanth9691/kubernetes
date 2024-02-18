@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ghost-daemon
+  labels:
+    author: reddy
+spec:
+  selector:
+    matchLabels:
+      author: reddy
+  template:
+    metadata:
+      name: ghost-pod
+      labels:
+        author: reddy
+    spec:
+      containers:
+        - name: ghost
+          image: ghost
+          env: 
+            - name: NODE_NEW
+              value: development
+...             
+
