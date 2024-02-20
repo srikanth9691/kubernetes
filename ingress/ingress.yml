@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: tomca-service
+                name: tomcat-service
                 port:
                   number: 8080  
     - host: apache.example.com
@@ -32,7 +32,7 @@ spec:
         paths:
           - path: /
             pathType: Prefix
-            beckend:
+            backend:
               service:
                 name: nginx-service
                 port:
