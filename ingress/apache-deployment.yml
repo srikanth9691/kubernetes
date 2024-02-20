@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  labels:
+    type: webserver
+    author: msr
+spec:   
+  replicas: 1
+  selector:
+    matchLabels:
+      type: webserver 
+  template:
+    metadata:
+      name: apache-pod
+      labels:
+        type: webserver
+    spec:
+      containers:
+        - name: myapache
+          image: httpd
+          ports:
+            - containerPort: 80
+
